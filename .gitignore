@@ -1,0 +1,27 @@
+# obj
+*.so
+*.o
+*.a
+*.os
+
+# scons
+.sconsign.dblite
+
+# nix
+result*
+
+# regular target which is not really used
+build
+bin
+
+# compile commands
+.cache
+compile_commands.json
+
+# default log dumps
+log
+
+# Doc ignores
+docs/html
+docs/latex
+docs/xml

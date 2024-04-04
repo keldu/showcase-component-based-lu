@@ -1,0 +1,29 @@
+#!/bin/false
+
+import os
+import os.path
+import glob
+
+
+Import('env')
+
+dir_path = Dir('.').abspath
+
+# Environment for base library
+examples_env = env.Clone();
+
+examples_env.sources = sorted(glob.glob(dir_path + "/*.cpp"))
+examples_env.headers = sorted(glob.glob(dir_path + "/*.hpp"))
+
+env.sources += examples_env.sources;
+env.headers += examples_env.headers;
+
+objects_static = []
+examples_env.kel_lr_solver = examples_env.Program('#bin/kel_lr_solver', examples_env.sources);
+
+# Set Alias
+env.examples = [examples_env.kel_lr_solver];
+env.Alias('examples', env.examples);
+
+env.targets += ['examples'];
+env.Install('$prefix/bin/', env.examples);
