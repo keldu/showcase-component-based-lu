@@ -20,7 +20,6 @@ stdenv.mkDerivation {
   buildInputs = [
     forstio.core
     forstio.codec
-    eigen
   ];
 
   outputs = ["out" "dev" ];
