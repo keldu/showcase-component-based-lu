@@ -4,5 +4,8 @@
 
 namespace schema {
 using namespace saw::schema;
-using Matrix = Array<Float32, 2>;
+using Precision = Float32;
+
+using Matrix = Array<Precision, 2>;
+using Vector = Array<Precision, 1>;
 }
