@@ -70,6 +70,11 @@ int main(int argc, char** argv){
 	b.at(1) = 3u;
 	b.at(2) = 1u;
 
+	std::cout<<"\nInitial state\n";
+	print_matrix(l);
+	print_matrix(u);
+	print_vector(b);
+
 	auto eov = comps.apply(data);
 	if(eov.is_error()){
 		auto& err = eov.get_error();
@@ -80,11 +85,13 @@ int main(int argc, char** argv){
 		}
 		std::cerr<<std::endl;
 	}
+
+	std::cout<<"\nHelp Vector\n";
+	print_vector(y);
 	
+	std::cout<<"\nSolution\n";
 	print_matrix(l);
 	print_matrix(u);
-	print_vector(b);
-	print_vector(y);
 	print_vector(x);
 
 	return 0;
